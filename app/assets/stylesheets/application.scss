@@ -242,8 +242,12 @@ h1 h2 h3{
 .btn-play-class p {
 	line-height: 70px;
 	font-size: 1.3em;
+
 	/*font-size: 20px;*/
 	font-style: bold;
+}
+#btn-play-dig p {
+	padding-left: 315px;
 }
 
 #arrow {
@@ -540,8 +544,9 @@ h1 h2 h3{
 		margin: auto;
 		height: 25vh;
 	}
+
 	#question-img img {
-		width: 90%;
+		width: 99%;
 		height: auto;
 	}
 
@@ -558,6 +563,7 @@ h1 h2 h3{
 	.btn {
 		line-height: 15vw;
 	}
+
 
 
 
@@ -588,6 +594,12 @@ h1 h2 h3{
 	#btn-play-dig {
 		margin-bottom: 1vh;
 	}
+
+	#btn-play-dig p {
+
+	padding-left: 45vw;
+	}
+
 
 	#arrow {
 		width: 33vw;
@@ -628,30 +640,38 @@ h1 h2 h3{
 	#btn1-after{
 		margin-left: 3vw;
 		margin-right: 3vw;
-		margin-top: 3vw;
+		margin-top: 2vw;
+		box-shadow: none;
 
 	}
 	#btn2-after{
 		margin-left: 3vw;
 		margin-right: 3vw;
-		margin-top: 3vw;
+		margin-top: 2vw;
+		box-shadow: none;
 	}
 	#btn3-after{
 		margin-left: 3vw;
 		margin-right: 3vw;
-		margin-top: 3vw;
+		margin-top: 2vw;
+		box-shadow: none;
 	}
 	#btn4-after{
 		margin-left: 3vw;
 		margin-right: 3vw;
-		margin-top: 3vw;
+		margin-top: 2vw;
+		box-shadow: none;
 	}
 
 	.answers #btn-next-q {
 		width: 94vw;
 		height: 17vw;
-		margin-top: 3vh;
+		margin-top: 2vh;
+		box-shadow: none;
 
+	}
+	#btn-next-q {
+		box-shadow: none;
 	}
 
 	#btn-next-q p{
@@ -673,11 +693,20 @@ h1 h2 h3{
 	}
 	#question-answer{
 		height: 42vh !important;
+		position: relative;
 	}
 
-	#btn-save-article {
-		width: 90vw;
+	#btn-save-aticle {
+		width: 70vw;
+		height: 7vh;
+		margin: 1vw;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 10;
 	}
+
+
 
 	#article-btn{
 		width: 30vw;
