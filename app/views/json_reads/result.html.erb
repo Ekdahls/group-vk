@@ -29,27 +29,22 @@
 				<h3> Du svarade rätt på <%= result %> av 7 frågor </h3>	
 			</div>
 
-
-			<div id="res1" class="result-dot"></div>
-			<div id="res2" class="result-dot"></div>
-			<div id="res3" class="result-dot"></div>
-			<div id="res4" class="result-dot"></div>
-			<div id="res5" class="result-dot"></div>
-			<div id="res6" class="result-dot"></div>
-			<div id="res7" class="result-dot"></div>	
-
+			<div id="result-dots">
+				<div id="res1" class="result-dot"></div>
+				<div id="res2" class="result-dot"></div>
+				<div id="res3" class="result-dot"></div>
+				<div id="res4" class="result-dot"></div>
+				<div id="res5" class="result-dot"></div>
+				<div id="res6" class="result-dot"></div>
+				<div id="res7" class="result-dot"></div>	
+			</div>
 
 			
+
 						
 		</div>
 
-			<%= link_to json_read_startpage_path, {:id => "btn-next-q", :class => "btn-default"} do %>
-				<div id="arrow">GÅ VIDARE</div>
-			 	<p>Startpage</p>
-			 <% end %>
-
-
-
+			<button id="btn-finish" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Avsluta spel</p> </button>
 
 		
 	<div>
@@ -74,3 +69,4 @@
 		</script>
 
 </body>
+</html>

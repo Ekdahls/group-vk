@@ -429,10 +429,54 @@ h1 h2 h3{
 	background-image: url("/plus-blue.png");
 
 }
-
-
-
 /*Slut från maja*/
+
+/*result*/
+
+#result-question {
+	width: 600px;
+	height: 500px;
+	margin: auto;
+	margin-top: 10px;
+	background-color: white;
+	padding: 5px 10px 0px 10px;
+}
+
+#result-dots{
+
+	width: 490px;
+	margin: auto;
+}
+
+.result-dot {
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+	margin: 0 8px 0 8px;
+}
+
+#result-text { 
+	text-align: center;
+	margin: 100px 0 100px 0;
+	font-size: 1.5em;
+}
+
+#btn-finish {
+	width: 600px;
+	height: 70px;
+	display: block;
+	margin: auto;
+	margin-top: 15px;
+	border: 0px;
+	padding: 0 0 0 0;
+}
+
+#btn-finish p{
+	line-height: 70px;
+	font-size: 1.3em;
+	
+}
 
 
 
@@ -707,7 +751,6 @@ h1 h2 h3{
 	}
 
 
-
 	#article-btn{
 		width: 30vw;
 		height: 5vh;
@@ -722,28 +765,34 @@ h1 h2 h3{
 		margin-left: 2vw;
 	}
 
+	/*Resp. Result*/
+	#result-question {
+		width: 100vw;
+		height: 75vh;
+	}
 
+	#result-question h3{
+		font-size: 1em;
+	}
+
+	#result-dots{
+		width: 80vw;
+	}
+
+	.result-dot {
+		width: 9vw ;
+		height: 9vw ;
+		margin: 0 1.3vw 0 0 ;
+	}
+
+	#btn-finish {
+		width: 94vw ;
+		height: 17vw ;
+	}
 
 	
 }
 
-/*result*/
-
-#result-container {
-	width: 520px;
-	height: 520px;	
-	margin: auto;
-	padding-top: 250px;
-}
-
-.result-dot {
-	border-radius: 50%;
-	height: 50px;
-	width: 50px;
-	display: inline-block;
-	background-color: white;
-	margin: 0 10px 0 10px;
-}
 
 
 
