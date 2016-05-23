@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>svar</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+
+	
+ 
+	</head>
+	<body>
+
+	<div class="container">
+
+		<div id="topdiv">
+	  		<div id="logo">
+	  			<img src="/VKloggaHead.png">
+	  		</div>
+		</div>
+
+		<div id="cat-head">
+				
+			<div id="category">
+				<style type="text/css">
+					#category {
+						background-color: <%= @hex %>;
+					}
+				</style>
+				<p><%= @cat %></p>
+			</div>
+
+			<% case $i %>
+				<%	when 1 %>
+	  					<style>
+	  						#ans1{
+	  							background-color: #007bc4;
+	  						}
+	  					</style>
+				<%	when 2 %>
+	  					<style>
+	  						#ans1{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans2{
+	  							background-color: #007bc4;
+	  						}
+	  					</style>
+				<%	when 3 %>
+	  					<style>
+	  						#ans1{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans2{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans3{
+	  							background-color: #007bc4;
+	  						}
+	  					</style>
+				<%	when 4 %>
+	  					<style>
+	  						#ans1{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans2{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans3{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans4{
+	  							background-color: #007bc4;
+	  						}
+	  					</style>
+				<%	when 5 %>
+	  					<style>
+	  						#ans1{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans2{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans3{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans4{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans5{
+	  							background-color: #007bc4;
+	  						}
+
+	  					</style>
+			<%	when 6 %>
+	  					<style>
+	  						#ans1{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans2{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans3{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans4{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans5{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans6{
+	  							background-color: #007bc4;
+	  						}
+	  					</style>
+			 					
+			  	<%	else %>
+	   					<style>
+	  						#ans1{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans2{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans3{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans4{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans5{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans6{
+	  							background-color: #007bc4;
+	  						}
+	  						#ans7{
+	  							background-color: #007bc4;
+	  						}
+
+	  					</style>		
+				<% end %>
+
+				<div id="ans7" class="progress-dot"></div>
+				<div id="ans6" class="progress-dot"></div>
+				<div id="ans5" class="progress-dot"></div>
+				<div id="ans4" class="progress-dot"></div>
+				<div id="ans3" class="progress-dot"></div>
+				<div id="ans2" class="progress-dot"></div>
+				<div id="ans1" class="progress-dot"></div>																		
+		</div>
+
+		<div id ="question-answer" class = "question">
+	
+			<div class="answer-col">
+				<div class="summary">
+					<h3> <%= @title  %> <h3>
+					<p> <%= @summary  %> <p>
+				</div>
+				
+			</div>
+
+			<div id="answcol" class="answer-col">
+				<div id="tagshead">FÖLJ ÄMNEN</div>
+				<% unless @tags.nil? %>
+		  				<% @tags.each do |tag| %>
+		  						<div class="tag-row"> 
+		  							<div class="tag-plus"></div> 
+		  							<p><%= tag.upcase %></p> 
+		  						</div>	
+		  						<br>    				
+						<% end %>		
+				<% end %>
+
+			</div>
+
+			<% if @ans==@c_answer%>
+				<p> Rätt svar </p>
+				<!--<% $result_arr.push(1) %> -->
+			<% else %>
+				<p> Fel svar </p>
+				<!-- <% $result_arr.push(0) %> -->
+			<% end %>
+
+		<div id="btn-save-aticle">
+			<a href="<%= @url %>" target="_blank"><button id="article-btn" class="btn btn-default">LÄS NU</button></a>
+			<button id="save-btn" class="btn btn-default" onclick="saveArticle(this.id)"><span class="glyphicon glyphicon-star"></span> SPARA</button>
+		</div>
+
+		</div>
+
+
+	<% case $randno %>
+	<%		when 1 %>
+
+  					<style>
+
+  						#btn1-after {
+  							background-color: #c1e5d0;
+  						}
+
+  						#answers2{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+
+  					</style>
+	<%		when 2 %>
+  				  	<style>
+
+  				  		#btn2-after {
+  							background-color: #c1e5d0;
+  						}
+
+  						#answers1{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+  						
+  					</style>
+	<%		when 3%>
+  					<style>
+
+  						#btn3-after {
+  							background-color: #c1e5d0;
+  						}
+
+  						#answers1{
+  							display: none;
+  						}
+  						#answers2{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+  						
+  					</style>
+  	<%		when 4 %>
+  					<style>
+
+  						#btn4-after {
+  							background-color: #c1e5d0;
+  						}
+
+  						#answers1{
+  							display: none;
+  						}
+  						#answers2{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						
+  					</style>
+  	<%		else %>
+   					<style>
+   						#btn1-after {
+  							background-color: #c1e5d0;
+  						}
+
+  						#answers2{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+
+  					</style>		
+	<%	end %>
+
+		<div id = "answers1" class ="answers">
+				
+			<button id="btn1-after" class="btn btn-default btn-after"><%= @c_answer %></button>
+			<button id="btn2-after" class="btn btn-default btn-after"><%= @alt1 %></button>
+			<button id="btn3-after" class="btn btn-default btn-after"><%= @alt2 %></button>
+			<button id="btn4-after" class="btn btn-default btn-after"><%= @alt3 %></button>
+
+			<% if $finish == true %>
+  				<a href="result"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">SE RESULTAT</div> <p>Se resultat</p> </button></a>
+			<% else %>
+				<a href="index"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Nästa fråga</p> </button></a>
+			<% end %>
+	 	</div>
+
+	 	<div id = "answers2" class ="answers">
+				
+			<button id="btn1-after" class="btn btn-default btn-after"><%= @alt3 %></button>
+			<button id="btn2-after" class="btn btn-default btn-after"><%= @c_answer %></button>
+			<button id="btn3-after" class="btn btn-default btn-after"><%= @alt1 %></button>
+			<button id="btn4-after" class="btn btn-default btn-after"><%= @alt2 %></button>			
+			
+			<% if $finish == true %>
+  				<a href="result"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">SE RESULTAT</div> <p>Se resultat</p> </button></a>
+			<% else %>
+				<a href="index"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Nästa fråga</p> </button></a>
+			<% end %>
+	 	</div>
+
+	 	<div id = "answers3" class ="answers">
+				
+			<button id="btn1-after" class="btn btn-default btn-after"><%= @alt2 %></button>
+			<button id="btn2-after" class="btn btn-default btn-after"><%= @alt3 %></button>
+			<button id="btn3-after" class="btn btn-default btn-after"><%= @c_answer %></button>
+			<button id="btn4-after" class="btn btn-default btn-after"><%= @alt1 %></button>
+			
+			<% if $finish == true %>
+  				<a href="result"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">SE RESULTAT</div> <p>Se resultat</p> </button></a>
+			<% else %>
+				<a href="index"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Nästa fråga</p> </button></a>
+			<% end %>
+	 	</div>
+
+	 	<div id = "answers4" class ="answers">
+			
+			<button id="btn1-after" class="btn btn-default btn-after"><%= @alt1 %></button>	
+			<button id="btn2-after" class="btn btn-default btn-after"><%= @alt2 %></button>
+			<button id="btn3-after" class="btn btn-default btn-after"><%= @alt3 %></button>
+			<button id="btn4-after" class="btn btn-default btn-after"><%= @c_answer %></button>
+
+			<% if $finish == true %>
+  				<%= link_to json_read_result_path, {:id => "btn-play-dig", :class => "btn-play-class"} do %>
+					<div id="arrow">SE RESULTAT</div>
+					<p>Se resultat</p>
+			 	<% end %>
+			<% else %>
+				<%= link_to json_reads_path, {:id => "btn-play-dig", :class => "btn-play-class", :onclick => "answered()"} do %>
+					<div id="arrow">GÅ VIDARE</div>
+					<p>Nästa fråga</p>
+			 	<% end %>
+			<% end %>
+	 	</div>
+
+	 	
+	<div>
+
+	<%= javascript_tag do %>
+  		window.id = "<%=@id %>";
+  		window.randn = "<%=$randno %>";
+  		window.ans = "<%=@ans %>";
+	<% end %>
+
+
+	<script>
+
+		var click = false
+
+
+		function saveArticle(savebutton){
+			
+			if (!click) {
+				var button = document.getElementById(savebutton)
+				button.style.color = "#007bc4"
+				button.style.opacity = "1"
+				$(button).html($(button).html().replace('SPARA','SPARAD'));
+				click = true
+			} else {
+				var button = document.getElementById(savebutton)
+				button.style.color = "black"
+				button.style.opacity = "0.6"
+				$(button).html($(button).html().replace('SPARAD','SPARA'));
+				click = false
+			}		
+		}
+
+			$( document ).ready(function() {	
+
+
+				if (!document.getElementById(id).style=== "none"){
+					document.getElementById(id).style.backgroundColor = "red"			
+				}
+
+				
+				
+
+		});
+
+
+		
+
+	</script>
+
+
+
+
+</body>
+</html>

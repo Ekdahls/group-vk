@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Leta json</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+</head>
+
+
+<body >
+<div class="container">
+
+	<div id="topdiv">
+  		<div id="logo">
+  			<img src="/VKloggaHead.png">
+  		</div>
+	</div>
+
+	<div id="startpage">
+
+		<div id="play">
+
+
+		    <button id="btn-play-utmanare" class="btn-play-class"> <div id="arrow">SPELA</div> <p>Veckans utmanare </p></button>
+		   
+			<%= link_to json_reads_path, {:id => "btn-play-dig", :class => "btn-play-class"} do %>
+				<div id="arrow">SPELA</div>
+				<p>Utmana dig själv</p>
+			 <% end %>
+
+
+			<button id="btn-play-annan" class="btn-play-class"> <div id="arrow">SPELA</div> <p>Utmana motståndare </p></button>
+
+			
+		</div>
+
+		<div id="current-games-head">
+			<h3>PÅGÅENDE SPEL</h3>			
+		</div>
+
+		<div id="current-games">
+
+			<div id="c-game1" class="c-game">
+				<p><b>kickassMF</b></p> 
+				<p>Din tur</p>
+			</div>
+
+			<div id="c-game2" class="c-game">
+				<p><b>Baitboxbombarn</b></p> 
+				<p>Se resultat</p>
+			</div>
+
+			<div id="c-game3" class="c-game">
+				<p><b>Daniel Seastream</b></p> 
+				<p>Måtståndarens tur</p>
+			</div>
+
+		</div>
+
+
+		
+
+	</div>
+	
+
+
+		
+		
+
+		
+
+
+
+
+
+
+
+	
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

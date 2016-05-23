@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>fråga</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+
+	<script>
+
+	var clicked = false;
+  var time;
+
+		$(function() {			
+			$(".meter > span").each(function() {
+				$(this)
+					.data("origWidth", $(this).width())
+					.width(0)
+					.animate({
+						width: $(this).data("origWidth")
+					}, 20000);
+
+           time = setTimeout(openUrl, 20000);
+			});	
+
+       
+		});
+
+
+		function openUrl(){
+			if (clicked == false){
+   				window.location = 'http://localhost:3000/json_reads/'+ wans +'/answer';
+          //clearTimeOut(time);
+   			}
+		}
+
+
+		function answered(){
+			clicked = true;
+      if(clicked == true) {
+        clearTimeout(time);
+        clicked = false;
+      }
+
+		}
+
+
+
+
+	</script>
+ 
+</head>
+<body onload="function()">
+
+<div class="container">
+	
+	<div id="topdiv">
+  		<div id="logo">
+  			<img src="/VKloggaHead.png">
+  		</div>
+	</div>
+
+	<div id="cat-head">
+			
+		<div id="category">
+
+      <style type="text/css">
+          #category {
+            background-color: <%= @hex %>;
+          }
+      </style>
+
+			<p><%= @cat %></p>
+		</div>
+
+
+      <% case $i %>
+        <%  when 1 %>
+              <style>
+                #ans1{
+                  background-color: #007bc4;
+                }
+              </style>
+        <%  when 2 %>
+              <style>
+                #ans1{
+                  background-color: #007bc4;
+                }
+                #ans2{
+                  background-color: #007bc4;
+                }
+              </style>
+        <%  when 3 %>
+              <style>
+                #ans1{
+                  background-color: #007bc4;
+                }
+                #ans2{
+                  background-color: #007bc4;
+                }
+                #ans3{
+                  background-color: #007bc4;
+                }
+              </style>
+        <%  when 4 %>
+              <style>
+                #ans1{
+                  background-color: #007bc4;
+                }
+                #ans2{
+                  background-color: #007bc4;
+                }
+                #ans3{
+                  background-color: #007bc4;
+                }
+                #ans4{
+                  background-color: #007bc4;
+                }
+              </style>
+        <%  when 5 %>
+              <style>
+                #ans1{
+                  background-color: #007bc4;
+                }
+                #ans2{
+                  background-color: #007bc4;
+                }
+                #ans3{
+                  background-color: #007bc4;
+                }
+                #ans4{
+                  background-color: #007bc4;
+                }
+                #ans5{
+                  background-color: #007bc4;
+                }
+
+              </style>
+      <%  when 6 %>
+              <style>
+                #ans1{
+                  background-color: #007bc4;
+                }
+                #ans2{
+                  background-color: #007bc4;
+                }
+                #ans3{
+                  background-color: #007bc4;
+                }
+                #ans4{
+                  background-color: #007bc4;
+                }
+                #ans5{
+                  background-color: #007bc4;
+                }
+                #ans6{
+                  background-color: #007bc4;
+                }
+              </style>
+                
+          <%  else %>
+              <style>
+                #ans1{
+                  background-color: #007bc4;
+                }
+                #ans2{
+                  background-color: #007bc4;
+                }
+                #ans3{
+                  background-color: #007bc4;
+                }
+                #ans4{
+                  background-color: #007bc4;
+                }
+                #ans5{
+                  background-color: #007bc4;
+                }
+                #ans6{
+                  background-color: #007bc4;
+                }
+                #ans7{
+                  background-color: #007bc4;
+                }
+
+              </style>    
+        <% end %>
+
+        <div id="ans7" class="progress-dot"></div>
+        <div id="ans6" class="progress-dot"></div>
+        <div id="ans5" class="progress-dot"></div>
+        <div id="ans4" class="progress-dot"></div>
+        <div id="ans3" class="progress-dot"></div>
+        <div id="ans2" class="progress-dot"></div>
+        <div id="ans1" class="progress-dot"></div>                                    
+    </div>
+
+	<div class="question">
+
+		<div id="question-text">
+			<h3> <%= @quest %> </h3>
+		</div>
+
+		
+		
+
+		<div id="question-img">
+
+		  <img src="<%=@image %>" > 
+			
+		</div>
+
+	
+
+	</div>
+
+	<div id="page-wrap">
+
+		<div class="meter">
+
+			<span id="spanid"style="width: 100%"><span>
+				      <style type="text/css">
+        #spanid {
+        background-color: <%= @hex %>;
+        }
+      </style>
+			</span>
+			</span>
+		</div>
+	</div>
+
+	<% case $randno %>
+	<%		when 1 %>
+  					<style>
+
+  						#answers2{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+
+  					</style>
+	<%		when 2 %>
+  				  	<style>
+
+  						#answers1{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+  						
+  					</style>
+	<%		when 3%>
+  					<style>
+
+  						#answers1{
+  							display: none;
+  						}
+  						#answers2{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+  						
+  					</style>
+  	<%		when 4 %>
+  					<style>
+
+  						#answers1{
+  							display: none;
+  						}
+  						#answers2{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						
+  					</style>
+  	<%		else %>
+   					<style>
+
+  						#answers2{
+  							display: none;
+  						}
+  						#answers3{
+  							display: none;
+  						}
+  						#answers4{
+  							display: none;
+  						}
+
+  					</style>		
+	<%	end %>
+
+	<div id = "answers1" class ="answers">
+		
+		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
+		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
+		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
+		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>
+ 	</div>
+
+ 	<div id = "answers2" class ="answers">
+		
+		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
+		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
+		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
+		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>		
+ 	</div>
+
+ 	<div id = "answers3" class ="answers">
+		
+		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
+		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
+		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
+		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>			
+ 	</div>
+
+ 	<div id = "answers4" class ="answers">
+		
+		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
+		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
+		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
+		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>		
+ 	</div>
+
+
+ 	<!--Spara ett felaktigt alt till timebaren-->
+	<%= javascript_tag do %>
+  		window.wans = "<%=@alt1 %>";
+	<% end %>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
