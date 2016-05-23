@@ -221,7 +221,7 @@
 			<span id="spanid"style="width: 100%"><span>
 				      <style type="text/css">
         #spanid {
-        background-color: <%= @hex %>;
+          background-color: <%= @hex %>;
         }
       </style>
 			</span>
@@ -229,110 +229,22 @@
 		</div>
 	</div>
 
-	<% case $randno %>
-	<%		when 1 %>
-  					<style>
+	<div class ="answers">
 
-  						#answers2{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
+     <% order_array = [(hash1 = { :key => @c_answer, :button => (link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" )}),
 
-  					</style>
-	<%		when 2 %>
-  				  	<style>
+    (hash2 = { :key => @alt1, :button => (link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" )}),
 
-  						#answers1{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
-  						
-  					</style>
-	<%		when 3%>
-  					<style>
+    (hash3 = { :key => @alt2, :button => (link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()")}),
 
-  						#answers1{
-  							display: none;
-  						}
-  						#answers2{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
-  						
-  					</style>
-  	<%		when 4 %>
-  					<style>
+    (hash3 = { :key => @alt3, :button => (link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()")}) ]%>
 
-  						#answers1{
-  							display: none;
-  						}
-  						#answers2{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						
-  					</style>
-  	<%		else %>
-   					<style>
+    <% order_array.shuffle.each do |answer| %>
+      <% $answer_array.push(answer[:key]) %>
+      <p class ="p-answer"><%= answer[:button]%></p>
+    <% end %>
 
-  						#answers2{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
-
-  					</style>		
-	<%	end %>
-
-	<div id = "answers1" class ="answers">
-		
-		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
-		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
-		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
-		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>
- 	</div>
-
- 	<div id = "answers2" class ="answers">
-		
-		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
-		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
-		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
-		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>		
- 	</div>
-
- 	<div id = "answers3" class ="answers">
-		
-		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
-		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
-		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
-		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>			
- 	</div>
-
- 	<div id = "answers4" class ="answers">
-		
-		<%= link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" %>
-		<%= link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" %>
-		<%= link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()" %>
-		<%= link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()" %>		
- 	</div>
+  </div>
 
 
  	<!--Spara ett felaktigt alt till timebaren-->

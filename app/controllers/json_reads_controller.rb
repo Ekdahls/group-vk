@@ -47,8 +47,9 @@ class JsonReadsController < ApplicationController
 			@cat = @data[$randId]['category_id']
 			@hex = @data[$randId]['category_hex_code']
 			get_descriptions(@url)
-
 			@image = @desc_data['image']
+
+			$answer_array = Array.new()
 	 	end
 	end						
 
@@ -70,6 +71,7 @@ class JsonReadsController < ApplicationController
 
 		@title = @desc_data['title']
 		@summary = @desc_data['desc']
+		@image = @desc_data['image']
 
 		tagstring = @data[$randId]['tag']
 		unless tagstring.nil? || tagstring.empty?

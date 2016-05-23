@@ -23,7 +23,6 @@
          url('publico-black-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -99,7 +98,7 @@ h1 h2 h3{
 	margin: auto;
 	margin-top: 7px;
 	background-color: white;
-	/*padding: 1vw;*/
+	/*JESPER*/
 	padding: 5px 10px 0px 10px;
 }
 
@@ -127,6 +126,7 @@ h1 h2 h3{
 
 .answers {
 	margin: auto;
+	margin-top: 10px;
 	width: 600px;
 	padding-bottom: 10px;
 }
@@ -137,6 +137,7 @@ h1 h2 h3{
 	border: 0px;
 	-webkit-transition-duration: 0.5s;
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2), 0 7px 2px 0 rgba(0,0,0,0.05);
+	margin: 3px;
 
 }
 
@@ -183,23 +184,9 @@ h1 h2 h3{
 	
 }
 
-#btn1 {
-	margin-right: 8px; 
+.p-answer {
+	display: inline-block;
 }
-
-#btn2 {
-	margin-left: 8px;
-}
-
-#btn3 {
-	margin-top: 15px;
-	margin-right: 8px;
-}
-#btn4 {
-	margin-top: 15px;
-	margin-left: 8px;
-}
-
 
 /*Start StartPage*/
 #startpage {
@@ -297,25 +284,22 @@ h1 h2 h3{
 /*Från maja*/
 .answers .btn-after{
 	pointer-events: none;  
-	height: 45px;
+	height: 50px;
 
 	/*box-shadow: 0 0px 0px 0 rgba(0,0,0,0.0), 0 0px 0px 0 rgba(0,0,0,0.00);*/
 }
 #btn1-after {
-	margin-top: 15px; 
-	margin-right: 8px; 
+	margin: 3px; 
+	
 }
 #btn2-after {
-	margin-left: 8px;
-	margin-top: 15px;
+	margin: 3px;
 }
 #btn3-after {
-	margin-top: 15px;
-	margin-right: 8px;
+	margin: 3px;
 }
 #btn4-after {
-	margin-top: 15px;
-	margin-left: 8px;
+	margin: 3px;
 }
 #btn-corr {
 	background-color: #97c9a6;
@@ -342,18 +326,56 @@ h1 h2 h3{
 }
 
 .answer-col {
-	width: 50%;
+	width: 300px;
 	padding: 5px;
-	float: left;
 }
 
 .summary {
-	height: 200px;
+	height: 315px;
+	width: 250px;
 	margin-bottom: 20px;
+	position: relative;
+	margin: 0px;
+	margin-left: 15px;
+	float: left;
 }
 
 .summary p{
 	font-size: 0.8em;
+}
+#summary-img {
+	width: 250px;
+  height: 280px;
+	margin: 0px;
+  margin-top: 15px;
+  margin-left: 40px;
+  padding: 0px;
+	height: 230px;
+  z-index: 10;
+  float: left;;
+
+}
+
+#summary-img img {
+	width:250px;
+  height:280px;
+  max-height:100%;
+	margin: 0px;
+	display: block;
+	padding-top: 30px;
+	overflow: hidden;
+  z-index: 11;
+}
+#question-answer {
+  width: 600px;
+  height: 350px;
+}
+
+#btn-save-aticle{
+  position: absolute;
+  left: 3px;
+  bottom: 18px;;
+  z-index: 10;
 }
 
 #save-btn {
@@ -366,7 +388,6 @@ h1 h2 h3{
 	/*font-size: 12px;*/
 	opacity: 0.6;
 }
-
 
 #save-btn:hover {
 	color:  #007bc4;
@@ -387,6 +408,13 @@ h1 h2 h3{
 	border-color: #e0e0e0;
 	opacity: 0.6;
 	
+}
+#display-answer h3{
+	width: 150px;
+	height: 30px;
+}
+#display-answer{
+	width: 150px;
 }
 
 #tagshead{
@@ -458,7 +486,7 @@ h1 h2 h3{
 
 #result-text { 
 	text-align: center;
-	margin: 100px 0 100px 0;
+	margin: 40px 0 50px 0;
 	font-size: 1.5em;
 }
 
@@ -478,6 +506,16 @@ h1 h2 h3{
 	
 }
 
+#medal {
+	width: 150px;
+	height: 200px;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 80px;
+	background-image: url("/MedalVK2.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
 
 
 
@@ -596,16 +634,20 @@ h1 h2 h3{
 
 	.answers {
 		width: 100vw;
-		height: 45vh;
-		padding-bottom: 0px;
+		height: 45vh;	
+		padding: 0 0 0 1.4vw;
 	}
 
 	.answers .btn {
-		width: 95vw;
+		width: 94vw;
 		height: 8vh;
 	}
 	.btn {
 		line-height: 15vw;
+	}
+
+	.p-answer {
+		margin: 0px;
 	}
 
 
@@ -675,6 +717,14 @@ h1 h2 h3{
 
 	/*Resp. answer.html.erb*/
 
+
+	
+
+
+#summary-img{
+	display: none;
+}
+
 	.answers .btn-after{
 		width: 94vw;
 		height: 5vh;
@@ -682,26 +732,26 @@ h1 h2 h3{
 	}
 
 	#btn1-after{
-		margin-left: 3vw;
+		margin-left: 0vw;
 		margin-right: 3vw;
 		margin-top: 2vw;
 		box-shadow: none;
 
 	}
 	#btn2-after{
-		margin-left: 3vw;
+		margin-left: 0vw;
 		margin-right: 3vw;
 		margin-top: 2vw;
 		box-shadow: none;
 	}
 	#btn3-after{
-		margin-left: 3vw;
+		margin-left: 0vw;
 		margin-right: 3vw;
 		margin-top: 2vw;
 		box-shadow: none;
 	}
 	#btn4-after{
-		margin-left: 3vw;
+		margin-left: 0vw;
 		margin-right: 3vw;
 		margin-top: 2vw;
 		box-shadow: none;
@@ -710,9 +760,9 @@ h1 h2 h3{
 	.answers #btn-next-q {
 		width: 94vw;
 		height: 17vw;
+		margin-left: 0px;
 		margin-top: 2vh;
 		box-shadow: none;
-
 	}
 	#btn-next-q {
 		box-shadow: none;
@@ -728,9 +778,10 @@ h1 h2 h3{
 		height: 28vh;
 	}
 	.summary {
-		height: 10vh;
+		height: 38vh;
 		width: 95vw;
 		float: left;
+		margin: 0px;
 	}
 	#answcol {
 		display: none;
@@ -749,6 +800,7 @@ h1 h2 h3{
 		left: 0;
 		z-index: 10;
 	}
+
 
 
 	#article-btn{
@@ -788,6 +840,18 @@ h1 h2 h3{
 	#btn-finish {
 		width: 94vw ;
 		height: 17vw ;
+	}
+
+	#medal {
+
+		height: 30vh;
+		width: 40vw;
+		margin-bottom: 15vh;
+
+	}
+
+	#result-text{
+		margin-bottom: 3vh;
 	}
 
 	

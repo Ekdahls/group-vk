@@ -152,199 +152,51 @@
 		</div>
 
 		<div id ="question-answer" class = "question">
-	
-			<div class="answer-col">
-				<div class="summary">
-					<h3> <%= @title  %> <h3>
-					<p> <%= @summary  %> <p>
-				</div>
-				
-			</div>
-
-			<div id="answcol" class="answer-col">
-				<div id="tagshead">FÖLJ ÄMNEN</div>
-				<% unless @tags.nil? %>
-		  				<% @tags.each do |tag| %>
-		  						<div class="tag-row"> 
-		  							<div class="tag-plus"></div> 
-		  							<p><%= tag.upcase %></p> 
-		  						</div>	
-		  						<br>    				
-						<% end %>		
-				<% end %>
-
-			</div>
-
-			<% if @ans==@c_answer%>
-				<p> Rätt svar </p>
-				<!--<% $result_arr.push(1) %> -->
-			<% else %>
-				<p> Fel svar </p>
-				<!-- <% $result_arr.push(0) %> -->
-			<% end %>
 
 
+	        <div class="answer-col">
+	          <div class="summary">
+	          	  <div id="display-answer">
+	          		<% if @ans==@c_answer%>
+	    				<h3> Rätt svar </h3>
+	    				    <% $result_arr.push(1) %>
+	    			<% else %>
+	    				<h3> Fel svar </h3>
+	    				    <% $result_arr.push(0) %>
+	    			<% end %>
+	        	</div>
+	            <h3> <%= @title  %> <h3>
+	            <p> <%= @summary  %> <p>
 
-		<div id="btn-save-aticle">
-			<a href="<%= @url %>" target="_blank"><button id="article-btn" class="btn btn-default">LÄS NU</button></a>
-			<button id="save-btn" class="btn btn-default" onclick="saveArticle(this.id)"><span class="glyphicon glyphicon-star"></span> SPARA</button>
-		</div>
+	              <div id="btn-save-aticle">
+	                <a href="<%= @url %>" target="_blank"><button id="article-btn" class="btn btn-default"><p>LÄS NU</p></button></a>
+	                <button id="save-btn" class="btn btn-default" onclick="saveArticle(this.id)"><p><span class="glyphicon glyphicon-star"></span> SPARA</p></button>
+	              </div>
+	          </div>
+	        </div>
+	        <div id="summary-img">
+	          <img src="<%=@image %>">
+	        </div>
 
-		</div>
+	  </div>
 
 
-	<% case $randno %>
-	<%		when 1 %>
+		<div id class ="answers">
 
-  					<style>
-
-  						#btn1-after {
-  							background-color: #c1e5d0;
-  						}
-
-  						#answers2{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
-
-  					</style>
-	<%		when 2 %>
-  				  	<style>
-
-  				  		#btn2-after {
-  							background-color: #c1e5d0;
-  						}
-
-  						#answers1{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
-  						
-  					</style>
-	<%		when 3%>
-  					<style>
-
-  						#btn3-after {
-  							background-color: #c1e5d0;
-  						}
-
-  						#answers1{
-  							display: none;
-  						}
-  						#answers2{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
-  						
-  					</style>
-  	<%		when 4 %>
-  					<style>
-
-  						#btn4-after {
-  							background-color: #c1e5d0;
-  						}
-
-  						#answers1{
-  							display: none;
-  						}
-  						#answers2{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						
-  					</style>
-  	<%		else %>
-   					<style>
-   						#btn1-after {
-  							background-color: #c1e5d0;
-  						}
-
-  						#answers2{
-  							display: none;
-  						}
-  						#answers3{
-  							display: none;
-  						}
-  						#answers4{
-  							display: none;
-  						}
-
-  					</style>		
-	<%	end %>
-
-		<div id = "answers1" class ="answers">
-				
-			<button id="btn1-after" class="btn btn-default btn-after"><%= @c_answer %></button>
-			<button id="btn2-after" class="btn btn-default btn-after"><%= @alt1 %></button>
-			<button id="btn3-after" class="btn btn-default btn-after"><%= @alt2 %></button>
-			<button id="btn4-after" class="btn btn-default btn-after"><%= @alt3 %></button>
+			 <% $answer_array.each do |answer| %>   
+			 	<% if answer === @c_answer %>			
+      				<button class ="btn btn-default btn-after" style= "background-color:#4CAF50 "><%= answer%></button>
+      			<% elsif answer != @c_answer && @ans===answer %>
+      				<button class ="btn btn-default btn-after" style= " background-color:#dceaec"><%= answer%></button>
+      			<% else %>
+      				<button class ="btn btn-default btn-after"><%= answer%></button>
+      			<% end %>
+    		<% end %>
 
 			<% if $finish == true %>
   				<a href="result"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">SE RESULTAT</div> <p>Se resultat</p> </button></a>
 			<% else %>
 				<a href="index"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Nästa fråga</p> </button></a>
-			<% end %>
-	 	</div>
-
-	 	<div id = "answers2" class ="answers">
-				
-			<button id="btn1-after" class="btn btn-default btn-after"><%= @alt3 %></button>
-			<button id="btn2-after" class="btn btn-default btn-after"><%= @c_answer %></button>
-			<button id="btn3-after" class="btn btn-default btn-after"><%= @alt1 %></button>
-			<button id="btn4-after" class="btn btn-default btn-after"><%= @alt2 %></button>			
-			
-			<% if $finish == true %>
-  				<a href="result"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">SE RESULTAT</div> <p>Se resultat</p> </button></a>
-			<% else %>
-				<a href="index"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Nästa fråga</p> </button></a>
-			<% end %>
-	 	</div>
-
-	 	<div id = "answers3" class ="answers">
-				
-			<button id="btn1-after" class="btn btn-default btn-after"><%= @alt2 %></button>
-			<button id="btn2-after" class="btn btn-default btn-after"><%= @alt3 %></button>
-			<button id="btn3-after" class="btn btn-default btn-after"><%= @c_answer %></button>
-			<button id="btn4-after" class="btn btn-default btn-after"><%= @alt1 %></button>
-			
-			<% if $finish == true %>
-  				<a href="result"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">SE RESULTAT</div> <p>Se resultat</p> </button></a>
-			<% else %>
-				<a href="index"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Nästa fråga</p> </button></a>
-			<% end %>
-	 	</div>
-
-	 	<div id = "answers4" class ="answers">
-			
-			<button id="btn1-after" class="btn btn-default btn-after"><%= @alt1 %></button>	
-			<button id="btn2-after" class="btn btn-default btn-after"><%= @alt2 %></button>
-			<button id="btn3-after" class="btn btn-default btn-after"><%= @alt3 %></button>
-			<button id="btn4-after" class="btn btn-default btn-after"><%= @c_answer %></button>
-
-			<% if $finish == true %>
-  				<%= link_to json_read_result_path, {:id => "btn-play-dig", :class => "btn-play-class"} do %>
-					<div id="arrow">SE RESULTAT</div>
-					<p>Se resultat</p>
-			 	<% end %>
-			<% else %>
-				<%= link_to json_reads_path, {:id => "btn-play-dig", :class => "btn-play-class", :onclick => "answered()"} do %>
-					<div id="arrow">GÅ VIDARE</div>
-					<p>Nästa fråga</p>
-			 	<% end %>
 			<% end %>
 	 	</div>
 
