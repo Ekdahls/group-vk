@@ -139,9 +139,9 @@ h1 h2 h3{
 	width: 290px;
 	height: 80px;
 	border: 0px;
-	-webkit-transition-duration: 0.5s;
-	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2), 0 7px 2px 0 rgba(0,0,0,0.05);
 	margin: 4px;
+  -webkit-transition-duration: 0.5s;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05), 0 4px 2px 0 rgba(0,0,0,0.05);
 
 }
 
@@ -689,7 +689,7 @@ h1 h2 h3{
 	/*Responsiv för startpage*/
 	#startpage{
 		width: 100vw;
-		height: 100vh;
+		height: 90vh;
 	}
 
 	#play {
@@ -811,7 +811,7 @@ h1 h2 h3{
 		margin: 0px;
 	}
 
-  
+
 	#answcol {
 		display: none;
 	}
@@ -848,7 +848,7 @@ h1 h2 h3{
 	}
 	#summary-text {
 		float: left;
-		
+
 		margin-top: 1vh;
 	}
 
@@ -888,7 +888,7 @@ h1 h2 h3{
 	#btn-finish {
 		width: 94vw ;
 		height: 17vw ;
-		
+
 	}
 
 	#btn-finish p{

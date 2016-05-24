@@ -4,16 +4,18 @@
  <title>fråga</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
-	
- 
+
+
+
 </head>
 <body onload="function()">
 
 <div class="container">
-	
+
 	<div id="topdiv">
   		<div id="logo">
   			<img src="/VKloggaHead.png">
@@ -21,7 +23,7 @@
 	</div>
 
 	<div id="cat-head">
-			
+
 		<div id="category">
 
       <style type="text/css">
@@ -41,9 +43,9 @@
           <div id="ans4" class="progress-dot"></div>
           <div id="ans3" class="progress-dot"></div>
           <div id="ans2" class="progress-dot"></div>
-          <div id="ans1" class="progress-dot"></div>                                    
+          <div id="ans1" class="progress-dot"></div>
         </div>
-                                    
+
     </div>
 
 	<div class="question">
@@ -52,16 +54,16 @@
 			<h3> <%= @quest %> </h3>
 		</div>
 
-		
-		
+
+
 
 		<div id="question-img">
 
-		  <img src="<%=@image %>" > 
-			
+		  <img src="<%=@image %>" >
+
 		</div>
 
-	
+
 
 	</div>
 
@@ -110,7 +112,7 @@
   var clicked = false;
   var time;
 
-    $(function() {      
+    $(function() {
       $(".meter > span").each(function() {
         $(this)
           .data("origWidth", $(this).width())
@@ -120,15 +122,16 @@
           }, 20000);
 
            time = setTimeout(openUrl, 20000);
-      }); 
+      });
 
-       
+
     });
 
 
     function openUrl(){
       if (clicked == false){
-          window.location = 'http://localhost:3000/json_reads/'+ wans +'/answer';
+          window.location = 'http://quizclient.herokuapp.com/json_reads/'+ wans +'/answer';
+          //window.location = 'http://localhost:3000/json_reads/'+ wans +'/answer';
           //clearTimeOut(time);
         }
     }
@@ -143,27 +146,14 @@
 
     }
 
-      $( document ).ready(function() {  
-            var progressdots = document.getElementsByClassName("progress-dot")
-
-            for (var i = 0; i < progressdots.length; i++)
-              for (var k = 0; k < j; k++)
-                progressdots[6-k].style.backgroundColor = "#007bc4" 
-
-      });
+    $( document ).ready(function() {
+                var progressdots = document.getElementsByClassName("progress-dot")
+                for (var i = 0; i < j; i++)
+                    progressdots[6-i].style.backgroundColor = "#007bc4"
+                });
+        
 
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

@@ -4,11 +4,12 @@
   	<title>svar</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
 
   	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
-	
- 
+
+
 	</head>
 	<body>
 
@@ -21,7 +22,7 @@
 		</div>
 
 		<div id="cat-head">
-				
+
 			<div id="category">
 				<style type="text/css">
 					#category {
@@ -38,8 +39,8 @@
 	          <div id="ans4" class="progress-dot"></div>
 	          <div id="ans3" class="progress-dot"></div>
 	          <div id="ans2" class="progress-dot"></div>
-	          <div id="ans1" class="progress-dot"></div>                                    
-        	</div>																	
+	          <div id="ans1" class="progress-dot"></div>
+        	</div>
 		</div>
 
 		<div id ="question-answer" class = "question">
@@ -60,7 +61,7 @@
 	            <div id="summary-text">
  					<p> <%= @summary  %> </p>
 	            </div>
-	           
+
 
 	              <div id="btn-save-aticle">
 	                <a href="<%= @url %>" target="_blank"><button id="article-btn" class="btn btn-default">LÄS NU</button></a>
@@ -77,8 +78,8 @@
 
 		<div id class ="answers">
 
-			 <% $answer_array.each do |answer| %>   
-			 	<% if answer === @c_answer %>			
+			 <% $answer_array.each do |answer| %>
+			 	<% if answer === @c_answer %>
       				<button class ="btn btn-default btn-after" style= "background-color:#4CAF50 "><%= answer%></button>
       			<% elsif answer != @c_answer && @ans===answer %>
       				<button class ="btn btn-default btn-after" style= " background-color:#dceaec"><%= answer%></button>
@@ -100,7 +101,7 @@
 			<% end %>
 	 	</div>
 
-	 	
+
 	<div>
 
 	<%= javascript_tag do %>
@@ -117,7 +118,7 @@
 
 
 		function saveArticle(savebutton){
-			
+
 			if (!click) {
 				var button = document.getElementById(savebutton)
 				button.style.color = "#007bc4"
@@ -130,26 +131,24 @@
 				button.style.opacity = "0.6"
 				$(button).html($(button).html().replace('SPARAD','SPARA'));
 				click = false
-			}		
+			}
 		}
 
-			  $( document ).ready(function() {  
-		        var progressdots = document.getElementsByClassName("progress-dot")
-
-		        for (var i = 0; i < progressdots.length; i++)
-		          for (var k = 0; k < j; k++)
-		            progressdots[6-k].style.backgroundColor = "#007bc4" 
-
-        	});
+    $( document ).ready(function() {
+                var progressdots = document.getElementsByClassName("progress-dot")
+                for (var i = 0; i < j; i++)
+                    progressdots[6-i].style.backgroundColor = "#007bc4"
+                });
+    
 
 
-		
+
 
 	</script>
 
 
 
-    
+
 
 
 
