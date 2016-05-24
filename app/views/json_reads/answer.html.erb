@@ -31,124 +31,15 @@
 				<p><%= @cat %></p>
 			</div>
 
-			<% case $i %>
-				<%	when 1 %>
-	  					<style>
-	  						#ans1{
-	  							background-color: #007bc4;
-	  						}
-	  					</style>
-				<%	when 2 %>
-	  					<style>
-	  						#ans1{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans2{
-	  							background-color: #007bc4;
-	  						}
-	  					</style>
-				<%	when 3 %>
-	  					<style>
-	  						#ans1{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans2{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans3{
-	  							background-color: #007bc4;
-	  						}
-	  					</style>
-				<%	when 4 %>
-	  					<style>
-	  						#ans1{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans2{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans3{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans4{
-	  							background-color: #007bc4;
-	  						}
-	  					</style>
-				<%	when 5 %>
-	  					<style>
-	  						#ans1{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans2{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans3{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans4{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans5{
-	  							background-color: #007bc4;
-	  						}
-
-	  					</style>
-			<%	when 6 %>
-	  					<style>
-	  						#ans1{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans2{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans3{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans4{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans5{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans6{
-	  							background-color: #007bc4;
-	  						}
-	  					</style>
-			 					
-			  	<%	else %>
-	   					<style>
-	  						#ans1{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans2{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans3{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans4{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans5{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans6{
-	  							background-color: #007bc4;
-	  						}
-	  						#ans7{
-	  							background-color: #007bc4;
-	  						}
-
-	  					</style>		
-				<% end %>
-
-				<div id="ans7" class="progress-dot"></div>
-				<div id="ans6" class="progress-dot"></div>
-				<div id="ans5" class="progress-dot"></div>
-				<div id="ans4" class="progress-dot"></div>
-				<div id="ans3" class="progress-dot"></div>
-				<div id="ans2" class="progress-dot"></div>
-				<div id="ans1" class="progress-dot"></div>																		
+			<div id="progress-dots">
+	          <div id="ans7" class="progress-dot"></div>
+	          <div id="ans6" class="progress-dot"></div>
+	          <div id="ans5" class="progress-dot"></div>
+	          <div id="ans4" class="progress-dot"></div>
+	          <div id="ans3" class="progress-dot"></div>
+	          <div id="ans2" class="progress-dot"></div>
+	          <div id="ans1" class="progress-dot"></div>                                    
+        	</div>																	
 		</div>
 
 		<div id ="question-answer" class = "question">
@@ -197,9 +88,15 @@
     		<% end %>
 
 			<% if $finish == true %>
-  				<a href="result"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">SE RESULTAT</div> <p>Se resultat</p> </button></a>
+  				<%= link_to json_read_result_path, {:id => "btn-next-q", :class => "btn btn-default"} do %>
+					<div id="arrow">SE RESULTAT</div>
+					<p>Se resultat</p>
+				<% end %>
 			<% else %>
-				<a href="index"><button id="btn-next-q" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Nästa fråga</p> </button></a>
+				<%= link_to json_reads_path, {:id => "btn-next-q", :class => "btn btn-default"} do %>
+					<div id="arrow">GÅ VIDARE</div>
+					<p>Nästa fråga</p>
+				<% end %>
 			<% end %>
 	 	</div>
 
@@ -210,6 +107,7 @@
   		window.id = "<%=@id %>";
   		window.randn = "<%=$randno %>";
   		window.ans = "<%=@ans %>";
+  		window.j = "<%=$i %>";
 	<% end %>
 
 
@@ -235,23 +133,23 @@
 			}		
 		}
 
-			$( document ).ready(function() {	
+			  $( document ).ready(function() {  
+		        var progressdots = document.getElementsByClassName("progress-dot")
 
+		        for (var i = 0; i < progressdots.length; i++)
+		          for (var k = 0; k < j; k++)
+		            progressdots[6-k].style.backgroundColor = "#007bc4" 
 
-				if (!document.getElementById(id).style=== "none"){
-					document.getElementById(id).style.backgroundColor = "red"			
-				}
-
-				
-				
-
-		});
+        	});
 
 
 		
 
 	</script>
 
+
+
+    
 
 
 

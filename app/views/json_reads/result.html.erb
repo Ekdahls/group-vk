@@ -48,7 +48,10 @@
 						
 		</div>
 
-			<button id="btn-finish" class="btn btn-default"> <div id="arrow">GÅ VIDARE</div> <p>Avsluta spel</p> </button>
+			<%= link_to json_read_startpage_path, {:id => "btn-play-dig", :class => "btn-play-class"} do %>
+				<div id="arrow">GÅ VIDARE</div>
+				<p>Avsluta spel</p>
+			 <% end %>
 
 		
 	<div>

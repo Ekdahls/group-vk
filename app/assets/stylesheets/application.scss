@@ -169,6 +169,11 @@ h1 h2 h3{
 	float: left;
 }
 
+.progress-dots{
+		width: 60vw;
+		float: left;
+}
+
 .progress-dot {
 	border-radius: 50%;
 	height: 20px;
@@ -360,17 +365,21 @@ h1 h2 h3{
   float: left;
 
 }
-/*försöker fixa bildhelvetet...*/
+
 #summary-img img {
-	width: 100%;
-  height: 300px;
+	width: 250px;
+  height: auto;
+  max-height: 300px;
+
   /*max-height:100%;*/
 	margin: 0px;
 	display: block;
 	padding-top: 0px;
 	overflow: hidden;
   z-index: 11;
+  border-radius: 8%;
 }
+
 #question-answer {
   width: 600px;
   height: 350px;
@@ -879,7 +888,13 @@ h1 h2 h3{
 	#btn-finish {
 		width: 94vw ;
 		height: 17vw ;
+		
 	}
+
+	#btn-finish p{
+		line-height: 17vw;
+	}
+
 
 	#medal {
 
