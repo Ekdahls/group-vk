@@ -165,12 +165,15 @@
 	    				    <% $result_arr.push(0) %>
 	    			<% end %>
 	        	</div>
-	            <h3> <%= @title  %> </h3>
-	            <p> <%= @summary  %> </p>
+	            <h3 id="title"> <%= @title  %> </h3>
+	            <div id="summary-text">
+ 					<p> <%= @summary  %> </p>
+	            </div>
+	           
 
 	              <div id="btn-save-aticle">
-	                <a href="<%= @url %>" target="_blank"><button id="article-btn" class="btn btn-default"><p>LÄS NU</p></button></a>
-	                <button id="save-btn" class="btn btn-default" onclick="saveArticle(this.id)"><p><span class="glyphicon glyphicon-star"></span> SPARA</p></button>
+	                <a href="<%= @url %>" target="_blank"><button id="article-btn" class="btn btn-default">LÄS NU</button></a>
+	                <button id="save-btn" class="btn btn-default" onclick="saveArticle(this.id)"><span id = "star" class="glyphicon glyphicon-star"></span> SPARA</button>
 	              </div>
 	          </div>
 	        </div>

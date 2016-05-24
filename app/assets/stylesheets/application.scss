@@ -34,6 +34,10 @@
 
 }
 
+#star {
+	font-size:  0.9em;
+}
+
  h3 {
         font-family: 'publicoblack';
         font-size: 1.5em;
@@ -337,12 +341,12 @@ h1 h2 h3{
 	position: relative;
 	margin: 0px;
 	margin-left: 15px;
-  margin-top: 8px;
+  	margin-top: 8px;
 	float: left;
 }
 
 .summary p{
-	font-size: 0.8em;
+	font-size: 1em;
 }
 #summary-img {
 	width: 250px;
@@ -373,11 +377,15 @@ h1 h2 h3{
 }
 
 #question-answer h3{
-  float: left; /*Float, ny margin och fixad width*/
+  /*float: left; /*Float, ny margin och fixad width*/
   margin-top: 0px;
   width: auto;
   max-width: 250px;
 
+}
+
+#title {
+	width: 250px;
 }
 
 #btn-save-aticle{
@@ -388,8 +396,8 @@ h1 h2 h3{
 }
 
 #save-btn {
-	width: 110px;
-	height: 30px;
+	width: 115px;
+	height: 35px;
 	margin: auto;
 	margin-top: 10px;
 	background-color: #EEE;
@@ -404,8 +412,8 @@ h1 h2 h3{
 }
 
 #article-btn{
-	width: 110px;
-	height: 30px;
+	width: 115px;
+	height: 35px;
 	margin: auto;
 	margin-top: 10px;
 
@@ -421,13 +429,13 @@ h1 h2 h3{
 #display-answer h3{
 	width: 100px; /*ny bredd, färg och margin*/
 	height: 30px;
-  color: #007bc4;
-  margin-bottom: 0px;
-  margin-top: 5px;
+  	color: #007bc4;
+  	margin-bottom: 0px;
+  	margin-top: 5px;
 }
 #display-answer{
-	width: 100px;
-  float: left;
+	width: 250px;
+  	float: left;
 }
 
 #tagshead{
@@ -794,9 +802,7 @@ h1 h2 h3{
 		margin: 0px;
 	}
 
-  #question-answer h3 {
-    margin: 1vw;
-  }
+  
 	#answcol {
 		display: none;
 	}
@@ -823,6 +829,25 @@ h1 h2 h3{
 		float: left;
 		line-height: 1vh;
 	}
+
+	#display-answer{
+		width: 100vw;
+
+	}
+	#display-answer h3 {
+		width: 100%;
+	}
+	#summary-text {
+		float: left;
+		
+		margin-top: 1vh;
+	}
+
+	#title {
+		margin-bottom: 0px;
+	}
+
+
 	#save-btn {
 		width: 30vw;
 		height: 5vh;
