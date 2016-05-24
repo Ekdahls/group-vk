@@ -137,7 +137,7 @@ h1 h2 h3{
 	border: 0px;
 	-webkit-transition-duration: 0.5s;
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.2), 0 7px 2px 0 rgba(0,0,0,0.05);
-	margin: 3px;
+	margin: 4px;
 
 }
 
@@ -648,7 +648,7 @@ h1 h2 h3{
 	.answers {
 		width: 100vw;
 		height: 45vh;
-		padding: 0 0 0 1.4vw;
+		padding: 0 0 0 3vw;
 	}
 
 	.answers .btn {
@@ -742,31 +742,28 @@ h1 h2 h3{
 		width: 94vw;
 		height: 5vh;
 		line-height: 1vh;
+		margin-left: 0px;
 	}
 
 	#btn1-after{
 		margin-left: 0vw;
-		margin-right: 3vw;
-		margin-top: 2vw;
+
 		box-shadow: none;
 
 	}
 	#btn2-after{
 		margin-left: 0vw;
-		margin-right: 3vw;
-		margin-top: 2vw;
+
 		box-shadow: none;
 	}
 	#btn3-after{
 		margin-left: 0vw;
-		margin-right: 3vw;
-		margin-top: 2vw;
+
 		box-shadow: none;
 	}
 	#btn4-after{
 		margin-left: 0vw;
-		margin-right: 3vw;
-		margin-top: 2vw;
+
 		box-shadow: none;
 	}
 
