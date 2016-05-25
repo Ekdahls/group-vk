@@ -2,11 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rest-client'
 
-group :production do
+#group :production do
+#gem 'pg'
+#end
 
-gem 'pg'
-
-end
+gem 'sqlite3'
 
 gem 'json', '~> 1.8', '>= 1.8.3'
 #Gem httpparty
