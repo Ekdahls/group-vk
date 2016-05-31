@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  	<title>svar</title>
-
+	<title>svar</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
-
-  	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
 
-	</head>
+
+  </head>
 	<body>
 
 	<div class="container">
@@ -20,9 +18,8 @@
 	  			<img src="/VKloggaHead.png">
 	  		</div>
 		</div>
-
+<!--Style the category with a hexcolor-->
 		<div id="cat-head">
-
 			<div id="category">
 				<style type="text/css">
 					#category {
@@ -45,7 +42,10 @@
 
 		<div id ="question-answer" class = "question">
 
-
+          <!--Displays if the answer is correct or wrong.
+          saves 1 or 0 in array, 1 if correct and 0 if wrong.
+          Also displays title of the question and a summary. Both variables from the API
+        -->
 	        <div class="answer-col">
 	          <div class="summary">
 	          	  <div id="display-answer">
@@ -62,7 +62,9 @@
  					<p> <%= @summary  %> </p>
 	            </div>
 
-
+                <!--LÄS NU sends user to articleurl
+                SPARA is not fully implemented and does not work correctly
+                  -->
 	              <div id="btn-save-aticle">
 	                <a href="<%= @url %>" target="_blank"><button id="article-btn" class="btn btn-default">LÄS NU</button></a>
 	                <button id="save-btn" class="btn btn-default" onclick="saveArticle(this.id)"><span id = "star" class="glyphicon glyphicon-star"></span> SPARA</button>
@@ -77,7 +79,8 @@
 
 
 		<div id class ="answers">
-
+      <!--Coloring buttons differently depending on answer, green for right answer.
+       if wrong answer selected. clicked answer is light grey and correct green-->
 			 <% $answer_array.each do |answer| %>
 			 	<% if answer === @c_answer %>
       				<button class ="btn btn-default btn-after" style= "background-color:#4CAF50 "><%= answer%></button>
@@ -87,12 +90,13 @@
       				<button class ="btn btn-default btn-after"><%= answer%></button>
       			<% end %>
     		<% end %>
-
+        <!--If all seven questions are answered send user to final result page-->
 			<% if $finish == true %>
   				<%= link_to json_read_result_path, {:id => "btn-next-q", :class => "btn btn-default"} do %>
 					<div id="arrow">SE RESULTAT</div>
 					<p>Se resultat</p>
 				<% end %>
+        <!--else send user to next question-->
 			<% else %>
 				<%= link_to json_reads_path, {:id => "btn-next-q", :class => "btn btn-default"} do %>
 					<div id="arrow">GÅ VIDARE</div>
@@ -111,11 +115,11 @@
   		window.j = "<%=$i %>";
 	<% end %>
 
-
+<!--Visual implementation on "SPARA"-button.
+  Visual on progress-dots. Gets color if question is answered.
+-->
 	<script>
-
 		var click = false
-
 
 		function saveArticle(savebutton){
 
@@ -139,7 +143,7 @@
                 for (var i = 0; i < j; i++)
                     progressdots[6-i].style.backgroundColor = "#007bc4"
                 });
-    
+
 
 
 

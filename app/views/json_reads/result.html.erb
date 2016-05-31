@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  	<title>resultat</title>
-
+  <title>resultat</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
-
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
 	</head>
@@ -43,17 +41,12 @@
 				<div id="res7" class="result-dot"></div>
 			</div>
 
-
-
-
-
 		</div>
-
+      <!--Button to send to startpage. -->
 			<%= link_to json_read_startpage_path, {:id => "btn-play-dig", :class => "btn-play-class"} do %>
 				<div id="arrow">GÅ VIDARE</div>
 				<p>Avsluta spel</p>
 			 <% end %>
-
 
 	<div>
 
@@ -61,8 +54,8 @@
 		  		window.result = "<%=@result %>";
 		<% end %>
 
+    <!-- Style dots depending on how many right/wrong answers in the quiz-->
 		<script>
-
 			$( document ).ready(function() {
 
 				var resdots = document.getElementsByClassName("result-dot")

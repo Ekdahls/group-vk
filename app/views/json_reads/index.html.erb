@@ -1,157 +1,147 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>fråga</title>
 
+  <title>fråga</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes" />
-
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
-
-
-
 </head>
-<body onload="function()">
 
-<div class="container">
+  <body onload="function()">
 
-	<div id="topdiv">
-  		<div id="logo">
-  			<img src="/VKloggaHead.png">
+  <div class="container">
+
+  	<div id="topdiv">
+    		<div id="logo">
+    			<img src="/VKloggaHead.png">
+    		</div>
+  	</div>
+
+  	<div id="cat-head">
+
+      <!--Style the categoryblock with a hex color -->
+  		<div id="category">
+        <style type="text/css">
+            #category {
+              background-color: <%= @hex %>;
+            }
+        </style>
+  			<p><%= @cat %></p>
   		</div>
-	</div>
 
-	<div id="cat-head">
 
-		<div id="category">
-      <style type="text/css">
-          #category {
+          <div id="progress-dots">
+            <div id="ans7" class="progress-dot"></div>
+            <div id="ans6" class="progress-dot"></div>
+            <div id="ans5" class="progress-dot"></div>
+            <div id="ans4" class="progress-dot"></div>
+            <div id="ans3" class="progress-dot"></div>
+            <div id="ans2" class="progress-dot"></div>
+            <div id="ans1" class="progress-dot"></div>
+          </div>
+
+      </div>
+
+  	<div class="question">
+  		<div id="question-text">
+  			<h3> <%= @quest %> </h3>
+  		</div>
+
+  		<div id="question-img">
+  		  <img src="<%=@image %>" >
+  		</div>
+
+  	</div>
+    <!--Timebar-->
+  	<div id="page-wrap">
+
+  		<div class="meter">
+
+  			<span id="spanid"style="width: 100%"><span>
+  				      <style type="text/css">
+          #spanid {
             background-color: <%= @hex %>;
           }
-      </style>
-			<p><%= @cat %></p>
-		</div>
+        </style>
+  			</span>
+  			</span>
+  		</div>
+  	</div>
+    <!--Puts the 4 different answers in a array and shuffles them so the correct answer appear on different spots on each question-->
+  	<div class ="answers">
+       <% order_array = [(hash1 = { :key => @c_answer, :button => (link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" )}),
 
+      (hash2 = { :key => @alt1, :button => (link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" )}),
 
-        <div id="progress-dots">
-          <div id="ans7" class="progress-dot"></div>
-          <div id="ans6" class="progress-dot"></div>
-          <div id="ans5" class="progress-dot"></div>
-          <div id="ans4" class="progress-dot"></div>
-          <div id="ans3" class="progress-dot"></div>
-          <div id="ans2" class="progress-dot"></div>
-          <div id="ans1" class="progress-dot"></div>
-        </div>
+      (hash3 = { :key => @alt2, :button => (link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()")}),
+
+      (hash3 = { :key => @alt3, :button => (link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()")}) ]%>
+
+      <% order_array.shuffle.each do |answer| %>
+        <% $answer_array.push(answer[:key]) %>
+        <p class ="p-answer"><%= answer[:button]%></p>
+      <% end %>
 
     </div>
 
-	<div class="question">
 
-		<div id="question-text">
-			<h3> <%= @quest %> </h3>
-		</div>
+   	<!--Spara ett felaktigt alt till timebaren-->
+  	<%= javascript_tag do %>
+    		window.wans = "<%=@alt1 %>";
+        window.j = "<%=$i %>";
+  	<% end %>
 
+<!--This script has a timer on 20 seconds that sends the user to the next view with a wrong answer if timed out.
+If answered and not timed out the timer resets and are ready for the next question.
+-->
+    <script>
+    var clicked = false;
+    var time;
 
+      $(function() {
+        $(".meter > span").each(function() {
+          $(this)
+            .data("origWidth", $(this).width())
+            .width(0)
+            .animate({
+              width: $(this).data("origWidth")
+            }, 20000);
 
-
-		<div id="question-img">
-
-		  <img src="<%=@image %>" >
-
-		</div>
-
-
-
-	</div>
-
-	<div id="page-wrap">
-
-		<div class="meter">
-
-			<span id="spanid"style="width: 100%"><span>
-				      <style type="text/css">
-        #spanid {
-          background-color: <%= @hex %>;
-        }
-      </style>
-			</span>
-			</span>
-		</div>
-	</div>
-
-	<div class ="answers">
-
-     <% order_array = [(hash1 = { :key => @c_answer, :button => (link_to @c_answer.html_safe, json_read_answer_path(@c_answer, :param1 => @c_answer, :param2 => "btn1-after"), :class => "btn btn-default padding-btn", :id => "btn1", :onclick => "answered()" )}),
-
-    (hash2 = { :key => @alt1, :button => (link_to @alt1.html_safe, json_read_answer_path(@alt1, :param1 => @alt1, :param2 => "btn2-after"), :class => "btn btn-default padding-btn", :id => "btn2", :onclick => "answered()" )}),
-
-    (hash3 = { :key => @alt2, :button => (link_to @alt2.html_safe, json_read_answer_path(@alt2, :param1 => @alt2, :param2 => "btn3-after"), :class => "btn btn-default padding-btn", :id => "btn3", :onclick => "answered()")}),
-
-    (hash3 = { :key => @alt3, :button => (link_to @alt3.html_safe, json_read_answer_path(@alt3, :param1 => @alt3, :param2 => "btn4-after"), :class => "btn btn-default padding-btn", :id => "btn4", :onclick => "answered()")}) ]%>
-
-    <% order_array.shuffle.each do |answer| %>
-      <% $answer_array.push(answer[:key]) %>
-      <p class ="p-answer"><%= answer[:button]%></p>
-    <% end %>
-
-  </div>
+             time = setTimeout(openUrl, 20000);
+        });
 
 
- 	<!--Spara ett felaktigt alt till timebaren-->
-	<%= javascript_tag do %>
-  		window.wans = "<%=@alt1 %>";
-      window.j = "<%=$i %>";
-	<% end %>
-
-
-  <script>
-
-  var clicked = false;
-  var time;
-
-    $(function() {
-      $(".meter > span").each(function() {
-        $(this)
-          .data("origWidth", $(this).width())
-          .width(0)
-          .animate({
-            width: $(this).data("origWidth")
-          }, 20000);
-
-           time = setTimeout(openUrl, 20000);
       });
 
 
-    });
-
-
-    function openUrl(){
-      if (clicked == false){
-          //window.location = 'http://quizclient.herokuapp.com/json_reads/'+ wans +'/answer';
-          window.location = 'http://localhost:3000/json_reads/'+ wans +'/answer';
-          //clearTimeOut(time);
-        }
-    }
-
-
-    function answered(){
-      clicked = true;
-      if(clicked == true) {
-        clearTimeout(time);
-        clicked = false;
+      function openUrl(){
+        if (clicked == false){
+            //window.location = 'http://quizclient.herokuapp.com/json_reads/'+ wans +'/answer';
+            window.location = 'http://localhost:3000/json_reads/'+ wans +'/answer';
+            //clearTimeOut(time);
+          }
       }
 
-    }
 
-    $( document ).ready(function() {
-                var progressdots = document.getElementsByClassName("progress-dot")
-                for (var i = 0; i < j; i++)
-                    progressdots[6-i].style.backgroundColor = "#007bc4"
-                });
+      function answered(){
+        clicked = true;
+        if(clicked == true) {
+          clearTimeout(time);
+          clicked = false;
+        }
+
+      }
+
+      $( document ).ready(function() {
+                  var progressdots = document.getElementsByClassName("progress-dot")
+                  for (var i = 0; i < j; i++)
+                      progressdots[6-i].style.backgroundColor = "#007bc4"
+                  });
 
 
-  </script>
+    </script>
 
-</body>
+  </body>
 </html>

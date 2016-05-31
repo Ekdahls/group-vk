@@ -4,7 +4,7 @@ class JsonReadsController < ApplicationController
 	$quiz_arr = Array.new()
 	$i = 0
 
-
+	#Read url-bases
 	QUESTION_API_BASE_URL 	= "http://adminplatform.herokuapp.com/api"
 	SCRIPT_BASE_URL 		= "http://mega.vk.se/dev/og-stuff.php?url="
 
@@ -12,29 +12,30 @@ class JsonReadsController < ApplicationController
 		get_quest
 		$randno = rand(1...5)
 	end
+	#creates new arrays and clears old if the game has been played several times.
 	def startpage
 		$article_arr = Array.new()
 		$result_arr = Array.new()
-		
+
 		$quiz_arr.clear
 		#$randno.clear
 		$i = 0
 	end
-
-	def get_quest	
+	#Saves 7 questions to an array 
+	def get_quest
 		get_data
-		
+
 		$finish = false
 		unless $finish == true
 			$randId = rand(0...(@data.length-1))
-			while $quiz_arr.include?(@data[$randId]['id']) 
+			while $quiz_arr.include?(@data[$randId]['id'])
 				$randId = rand(0...(@data.length-1))
 			end
 			$quiz_arr.push(@data[$randId]['id'])
 			$i += 1
 
 			if $i == 7
-				$finish = true	
+				$finish = true
 			end
 
 			@quest = @data[$randId]['question_name']
@@ -51,8 +52,9 @@ class JsonReadsController < ApplicationController
 
 			$answer_array = Array.new()
 	 	end
-	end						
+	end
 
+	# Calls get_data and pulls aut information nessecary for the answer view.
 	def answer
 		get_data
 
@@ -80,15 +82,16 @@ class JsonReadsController < ApplicationController
 		end
 	end
 
+	#Method for reading the json-file from the API, saves it to @data
 	def get_data
-		uri ="#{QUESTION_API_BASE_URL}/questions.json" 
+		uri ="#{QUESTION_API_BASE_URL}/questions.json"
 		rest_resource = RestClient::Resource.new(uri)
 		data = rest_resource.get
 		@data= JSON.parse(data, :symbolize_name => true)
 
 	end
 
-
+	#Same as above but from another API
 	def get_descriptions(articleurl)
 		uri ="#{SCRIPT_BASE_URL}" + articleurl
 		rest_resource = RestClient::Resource.new(uri)
@@ -97,9 +100,7 @@ class JsonReadsController < ApplicationController
 	end
 
 	def result
-
 		@result = $result_arr.join("")
-
 	end
 
 end
